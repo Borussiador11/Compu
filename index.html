@@ -8,6 +8,7 @@ nada de estos lenguajes. Si quieres aprender luego, te recomendamos ver lo sigui
 - JS: https://developer.mozilla.org/es/docs/Learn/JavaScript
 -->
 <html lang="es">
+  <canvas id="my-canvas"></canvas>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -41,9 +42,17 @@ nada de estos lenguajes. Si quieres aprender luego, te recomendamos ver lo sigui
   <body>
     <h1>¡Hola mundo!</h1>
   </body>
+  <script src="node_modules/confetti-js/dist/index.min.js"></script>
   <script>
     // Aquí puedes dejar código JavaScript que se ejecutará cuando la página se cargue.
     // Importante: no debes importar ningún script externo aquí.
     // Para eso, utiliza script src dentro del head.
   </script>
 </html>
+<React.useEffect(() => {
+  const confettiSettings = { target: 'my-canvas' };
+  const confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+
+  return () => confetti.clear();
+}, [])>
